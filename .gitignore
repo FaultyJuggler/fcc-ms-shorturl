@@ -1,0 +1,7 @@
+.DS_STORE
+**/.DS_STORE
+.env
+**/.env
+*.env
+node_modules/
+config/
