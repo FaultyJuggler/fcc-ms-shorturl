@@ -1,5 +1,20 @@
 const Counter = require( '../models/counter.js' );
 
+// get a newUrl, force to string
+function getNext()
+{
+  return new Promise( resolve => getCountAndIncrease(
+      function( shortUrl )
+      {
+        resolve( shortUrl.toString() );
+      },
+  ) );
+}
+
+module.exports = {
+  getNext,
+};
+
 function getCountAndIncrease( callback )
 {
   Counter.findOneAndUpdate( {}, {$inc: {'count': 1}}, function( err, data )
@@ -23,19 +38,4 @@ function getCountAndIncrease( callback )
       } );
     }
   } );
-}
-
-module.exports = {
-  getNext,
-};
-
-// get a newUrl, force to string
-function getNext()
-{
-  return new Promise( resolve => getCountAndIncrease(
-      function( shortUrl )
-      {
-        resolve( shortUrl.toString() );
-      },
-  ) );
 }

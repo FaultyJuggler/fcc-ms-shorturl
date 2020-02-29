@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  web:
+    build: .
+    ports:
+      - "9000:3000"
+    #    depends_on:
+    #    — mongo
+    secrets:
+      - MONGO_URI
+#  mongo:
+#    image: mongo
+#    ports:
+#    — "27017:27017"
+secrets:
+  MONGO_URI:
+    file: ./config/MONGO_URI.txt

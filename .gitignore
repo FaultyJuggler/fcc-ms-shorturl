@@ -1,6 +1,6 @@
 .DS_STORE
 **/.DS_STORE
-.env
+config/.env
 **/.env
 *.env
 node_modules/
